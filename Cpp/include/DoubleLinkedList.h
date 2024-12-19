@@ -79,53 +79,59 @@ void DoublyLinkedList<T>::LpushBack2(const T& element) {
 // Удаляет первый элемент из списка
 template <typename T>
 void DoublyLinkedList<T>::LdelFront2() {
-    if (!head) return; // Если список пуст, ничего не делаем
+    if (!head) {
+        throw std::runtime_error("Список пуст, невозможно удалить элемент.");
+    }
     Node* temp = head;
-    head = head->next; // Перемещаем голову на следующий элемент
+    head = head->next;
     if (head) {
-        head->prev = nullptr; // Обнуляем предыдущий указатель новой головы
+        head->prev = nullptr;
     } else {
-        tail = nullptr; // Если это был последний элемент, обнуляем хвост
+        tail = nullptr;
     }
     delete temp;
     size--;
 }
 
-// Удаляет последний элемент из списка
 template <typename T>
 void DoublyLinkedList<T>::LdelBack2() {
-    if (!tail) return; // Если список пуст, ничего не делаем
+    if (!tail) {
+        throw std::runtime_error("Список пуст, невозможно удалить элемент.");
+    }
     Node* temp = tail;
-    tail = tail->prev; // Перемещаем хвост на предыдущий элемент
+    tail = tail->prev;
     if (tail) {
-        tail->next = nullptr; // Обнуляем следующий указатель нового хвоста
+        tail->next = nullptr;
     } else {
-        head = nullptr; // Если это был последний элемент, обнуляем голову
+        head = nullptr;
     }
     delete temp;
-    size--; 
+    size--;
 }
 
-// Удаляет первый элемент по значению
 template <typename T>
 void DoublyLinkedList<T>::Ldel2(const T& value) {
+    if (!head) {
+        throw std::runtime_error("Список пуст, невозможно удалить элемент.");
+    }
     Node* curr = head;
     while (curr) {
-        if (curr->data == value) { // Если элементы совпали, удаляем элемент
+        if (curr->data == value) {
             if (curr == head) {
-                LdelFront2(); // Если это голова, используем метод для удаления с начала
+                LdelFront2();
             } else if (curr == tail) {
-                LdelBack2(); // Если это хвост, используем метод для удаления с конца
-            } else { // Если элемент в середине
+                LdelBack2();
+            } else {
                 curr->prev->next = curr->next;
                 curr->next->prev = curr->prev;
                 delete curr;
                 size--;
             }
-            return; // Выходим после удаления элемента
+            return;
         }
-        curr = curr->next; // Переходим к следующему элементу
+        curr = curr->next;
     }
+    throw std::runtime_error("Элемент не найден в списке.");
 }
 
 // Поиск по значению

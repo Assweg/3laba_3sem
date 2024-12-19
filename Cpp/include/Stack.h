@@ -45,20 +45,17 @@ Stack<T>::~Stack() {
 template <typename T>
 void Stack<T>::Spush(const T& value) {
     if (SisFull()) {
-        cout << "Стек переполнен!" << endl;
-        return;
+        throw std::runtime_error("Стек переполнен!");
     }
-    arr[++top] = value; // Увеличение индекса и добавление элемента
+    arr[++top] = value;
 }
 
-// Удаление элемента
 template <typename T>
 void Stack<T>::Spop() {
     if (SisEmpty()) {
-        cout << "Стек пуст!" << endl;
-        return;
+        throw std::runtime_error("Стек пуст!");
     }
-    --top; // Уменьшение индекса верхнего элемента
+    --top;
 }
 
 // Чтение элемента
@@ -120,19 +117,21 @@ void Stack<T>::SreadFromFile(const string& filename) {
 
 template <typename T>
 void Stack<T>::SwriteToFile(const string& filename) const {
-    ofstream file(filename);
-    if (!file.is_open()) {
-        throw runtime_error("Не удалось открыть файл для записи.");
-    }
-
     if (SisEmpty()) {
         cout << "Стек пуст, ничего не записано." << endl;
-        file.close();
         return;
     }
 
+    ofstream file(filename);
+    if (!file.is_open()) {
+        throw std::runtime_error("Не удалось открыть файл для записи.");
+    }
+
     for (int i = top; i >= 0; --i) {
-        file << arr[i] << " \n"; // Записываем элементы в файл
+        if (i != top) {
+            file << " "; // Добавляем пробел между элементами
+        }
+        file << arr[i];
     }
 
     file.close();

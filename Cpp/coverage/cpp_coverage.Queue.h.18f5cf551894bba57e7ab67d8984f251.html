@@ -26,7 +26,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-12-04 22:52:27</td>
+      <td>2024-12-19 14:26:57</td>
     </tr>
   </table>
 </div>
@@ -40,9 +40,9 @@
     </tr>
     <tr>
       <th scope="row">Lines:</th>
-      <td>60</td>
+      <td>59</td>
       <td>63</td>
-      <td class="coverage-high">95.2%</td>
+      <td class="coverage-high">93.7%</td>
     </tr>
     <tr>
       <th scope="row">Functions:</th>
@@ -52,9 +52,9 @@
     </tr>
     <tr>
       <th scope="row">Branches:</th>
-      <td>38</td>
+      <td>36</td>
       <td>56</td>
-      <td class="coverage-low">67.9%</td>
+      <td class="coverage-low">64.3%</td>
     </tr>
   </table>
 </div>
@@ -70,16 +70,16 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l77">Queue&lt;int&gt;::QisEmpty() const (line 77)</a></td><td>called 16 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l83">Queue&lt;int&gt;::QisFull() const (line 83)</a></td><td>called 55 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l68">Queue&lt;int&gt;::Qpeek() const (line 68)</a></td><td>called 7 times</td><td>66.0%</td></tr>
+    <tr><td><a href="#l77">Queue&lt;int&gt;::QisEmpty() const (line 77)</a></td><td>called 15 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l83">Queue&lt;int&gt;::QisFull() const (line 83)</a></td><td>called 46 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l68">Queue&lt;int&gt;::Qpeek() const (line 68)</a></td><td>called 6 times</td><td>33.0%</td></tr>
     <tr><td><a href="#l58">Queue&lt;int&gt;::Qpop() (line 58)</a></td><td>called 3 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l88">Queue&lt;int&gt;::Qprint() const (line 88)</a></td><td>called 1 time</td><td>87.0%</td></tr>
-    <tr><td><a href="#l47">Queue&lt;int&gt;::Qpush(int const&amp;) (line 47)</a></td><td>called 43 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l47">Queue&lt;int&gt;::Qpush(int const&amp;) (line 47)</a></td><td>called 36 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l103">Queue&lt;int&gt;::QreadFromFile(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt;&gt; const&amp;) (line 103)</a></td><td>called 4 times</td><td>78.0%</td></tr>
-    <tr><td><a href="#l35">Queue&lt;int&gt;::Queue(int) (line 35)</a></td><td>called 36 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l35">Queue&lt;int&gt;::Queue(int) (line 35)</a></td><td>called 32 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l126">Queue&lt;int&gt;::QwriteToFile(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt;&gt; const&amp;) const (line 126)</a></td><td>called 3 times</td><td>81.0%</td></tr>
-    <tr><td><a href="#l41">Queue&lt;int&gt;::~Queue() (line 41)</a></td><td>called 36 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l41">Queue&lt;int&gt;::~Queue() (line 41)</a></td><td>called 32 times</td><td>100.0%</td></tr>
   </table>
 </details>
 
@@ -335,21 +335,21 @@
       <td class="lineno"><a id="l35" href="#l35">35</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">36</td>
+      <td class="linecount coveredLine">32</td>
       <td class="src coveredLine"><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Queue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">front</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">rear</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">maxSize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l36" href="#l36">36</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">18</td>
+      <td class="linecount coveredLine">16</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">maxSize</span><span class="p">];</span><span class="w"> </span><span class="c1">// Выделение памяти для массива</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l37" href="#l37">37</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">36</td>
+      <td class="linecount coveredLine">32</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -377,7 +377,7 @@
       <td class="lineno"><a id="l41" href="#l41">41</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">36</td>
+      <td class="linecount coveredLine">32</td>
       <td class="src coveredLine"><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::~</span><span class="n">Queue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
@@ -386,19 +386,19 @@
         <details class="linebranchDetails">
           <summary class="linebranchSummary">1/2</summary>
           <div class="linebranchContents">
-            <div class="takenBranch">&check; Branch 0 taken 18 times.</div>
+            <div class="takenBranch">&check; Branch 0 taken 16 times.</div>
             <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
           </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">18</td>
+      <td class="linecount partialCoveredLine">16</td>
       <td class="src partialCoveredLine"><span class="w">    </span><span class="n">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span><span class="w"> </span><span class="c1">// Освобождение памяти</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l43" href="#l43">43</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">36</td>
+      <td class="linecount coveredLine">32</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -426,7 +426,7 @@
       <td class="lineno"><a id="l47" href="#l47">47</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">43</td>
+      <td class="linecount coveredLine">36</td>
       <td class="src coveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Qpush</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
@@ -435,26 +435,26 @@
         <details class="linebranchDetails">
           <summary class="linebranchSummary">2/2</summary>
           <div class="linebranchContents">
-            <div class="takenBranch">&check; Branch 0 taken 6 times.</div>
-            <div class="takenBranch">&check; Branch 1 taken 37 times.</div>
+            <div class="takenBranch">&check; Branch 0 taken 3 times.</div>
+            <div class="takenBranch">&check; Branch 1 taken 33 times.</div>
           </div>
         </details>
       </td>
-      <td class="linecount coveredLine">43</td>
+      <td class="linecount coveredLine">36</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">QisFull</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l49" href="#l49">49</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Очередь переполнена!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l50" href="#l50">50</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -468,21 +468,21 @@
       <td class="lineno"><a id="l52" href="#l52">52</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">37</td>
+      <td class="linecount coveredLine">33</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">arr</span><span class="p">[</span><span class="n">rear</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l53" href="#l53">53</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">37</td>
+      <td class="linecount coveredLine">33</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">rear</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">maxSize</span><span class="p">;</span><span class="w"> </span><span class="c1">// Циклическое увеличение индекса</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l54" href="#l54">54</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">43</td>
+      <td class="linecount coveredLine">36</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -587,36 +587,29 @@
       <td class="lineno"><a id="l68" href="#l68">68</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">7</td>
+      <td class="linecount coveredLine">6</td>
       <td class="src coveredLine"><span class="n">T</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Qpeek</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l69" href="#l69">69</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-          <summary class="linebranchSummary">2/2</summary>
-          <div class="linebranchContents">
-            <div class="takenBranch">&check; Branch 0 taken 6 times.</div>
-            <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
-          </div>
-        </details>
-      </td>
-      <td class="linecount coveredLine">7</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">QisEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
-    </tr>
-    <tr class="source-line">
-      <td class="lineno"><a id="l70" href="#l70">70</a></td>
-      <td class="linebranch">
-        <details class="linebranchDetails">
           <summary class="linebranchSummary">1/2</summary>
           <div class="linebranchContents">
-            <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
+            <div class="takenBranch">&check; Branch 0 taken 6 times.</div>
             <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
           </div>
         </details>
       </td>
-      <td class="linecount partialCoveredLine">1</td>
-      <td class="src partialCoveredLine"><span class="w">        </span><span class="n">throw</span><span class="w"> </span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Очередь пуста!&quot;</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">6</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">QisEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
+    </tr>
+    <tr class="source-line">
+      <td class="lineno"><a id="l70" href="#l70">70</a></td>
+      <td class="linebranch">
+      </td>
+      <td class="linecount uncoveredLine">&cross;</td>
+      <td class="src uncoveredLine"><span class="w">        </span><span class="n">throw</span><span class="w"> </span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Очередь пуста!&quot;</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l71" href="#l71">71</a></td>
@@ -664,14 +657,14 @@
       <td class="lineno"><a id="l77" href="#l77">77</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">16</td>
+      <td class="linecount coveredLine">15</td>
       <td class="src coveredLine"><span class="kt">bool</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">QisEmpty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l78" href="#l78">78</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">16</td>
+      <td class="linecount coveredLine">15</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rear</span><span class="p">;</span><span class="w"> </span><span class="c1">// Если индексы равны, очередь пуста</span></td>
     </tr>
     <tr class="source-line">
@@ -706,14 +699,14 @@
       <td class="lineno"><a id="l83" href="#l83">83</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">55</td>
+      <td class="linecount coveredLine">46</td>
       <td class="src coveredLine"><span class="kt">bool</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">QisFull</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l84" href="#l84">84</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">55</td>
+      <td class="linecount coveredLine">46</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">rear</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">maxSize</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">front</span><span class="p">;</span><span class="w"> </span><span class="c1">// Если следующий индекс rear равен front</span></td>
     </tr>
     <tr class="source-line">

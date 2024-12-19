@@ -99,13 +99,12 @@ TEST(CompleteBinaryTreeTest, WriteToFile) {
     EXPECT_EQ(tree2.Tsearch(3), true);
 }
 
-// Тест на обработку исключений
 TEST(CompleteBinaryTreeTest, ExceptionHandling) {
     CompleteBinaryTree<int> tree(3);
     tree.Tinsert(1);
     tree.Tinsert(2);
     tree.Tinsert(3);
-    EXPECT_THROW(tree.Tinsert(4), std::runtime_error);
+    EXPECT_THROW(tree.Tinsert(4), std::runtime_error); // Ожидаем исключение
 }
 
 int main(int argc, char **argv) {

@@ -1,136 +1,106 @@
 package main
 
 import (
-	"bufio"
 	"errors"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 )
 
-// Queue представляет структуру данных очереди
-type Queue struct {
-	arr     []int // Массив для хранения элементов очереди
-	front   int   // Индекс начала очереди
-	rear    int   // Индекс конца очереди
-	maxSize int   // Максимальный размер очереди
+// Node представляет элемент очереди
+type Node struct {
+	data string // Данные, хранящиеся в узле
+	next *Node  // Указатель на следующий узел
+	prev *Node  // Указатель на предыдущий узел
 }
 
-// NewQueue создает новую очередь с заданным размером
-func NewQueue(size int) *Queue {
-	return &Queue{
-		arr:     make([]int, size),
-		front:   0,
-		rear:    0,
-		maxSize: size,
+// QUEUE представляет структуру очереди
+type QUEUE struct {
+	head *Node // Указатель на начало очереди
+	tail *Node // Указатель на конец очереди
+}
+
+// new_node создает новый узел с заданными данными
+func new_node(data string) *Node {
+	return &Node{
+		data: data,
+		next: nil,
+		prev: nil,
 	}
 }
 
-// Qpush добавляет элемент в конец очереди
-func (q *Queue) Qpush(value int) {
-	if q.QisFull() {
-		fmt.Println("Очередь переполнена!")
-		return
+// new_queue создает новую пустую очередь
+func new_queue() *QUEUE {
+	return &QUEUE{
+		head: nil,
+		tail: nil,
 	}
-	q.arr[q.rear] = value
-	q.rear = (q.rear + 1) % q.maxSize // Циклическое увеличение индекса
 }
 
-// Qpop удаляет элемент из начала очереди
-func (q *Queue) Qpop() {
-	if q.QisEmpty() {
-		fmt.Println("Очередь пуста!")
-		return
+// push добавляет элемент в конец очереди
+func (q *QUEUE) push(value string) {
+	new_node := new_node(value) // Создаем новый узел
+
+	// Если очередь пуста, устанавливаем head и tail на новый узел
+	if q.tail == nil && q.head == nil {
+		q.head = new_node
+		q.tail = new_node
+	} else {
+		// Иначе добавляем новый узел в конец очереди
+		q.tail.next = new_node
+		new_node.prev = q.tail
+		q.tail = new_node
 	}
-	q.front = (q.front + 1) % q.maxSize // Циклическое увеличение индекса
 }
 
-// Qpeek возвращает элемент из начала очереди без удаления
-func (q *Queue) Qpeek() (int, error) {
-	if q.QisEmpty() {
-		return 0, errors.New("Очередь пуста!")
-	}
-	return q.arr[q.front], nil
+// is_empty проверяет, пуста ли очередь
+func (q *QUEUE) is_empty() bool {
+	return q.head == nil
 }
 
-// QisEmpty проверяет, пуста ли очередь
-func (q *Queue) QisEmpty() bool {
-	return q.front == q.rear
+// size возвращает количество элементов в очереди
+func (q *QUEUE) size() (int, error) {
+	// Если очередь пуста, возвращаем ошибку
+	if q.head == nil {
+		return 0, errors.New("queue is empty")
+	}
+
+	temp := q.head // Начинаем с головы очереди
+	count := 0     // Счетчик элементов
+
+	// Проходим по всем элементам очереди
+	for temp != nil {
+		count++
+		temp = temp.next
+	}
+	return count, nil
 }
 
-// QisFull проверяет, заполнена ли очередь
-func (q *Queue) QisFull() bool {
-	return (q.rear+1)%q.maxSize == q.front
+// pop удаляет и возвращает элемент из начала очереди
+func (q *QUEUE) pop() string {
+	// Если очередь пуста, возвращаем пустую строку
+	if q.is_empty() {
+		return ""
+	}
+
+	temp := q.head.data // Сохраняем данные из головы очереди
+
+	// Если в очереди только один элемент, обнуляем head и tail
+	if q.head == q.tail {
+		q.head = nil
+		q.tail = nil
+	} else {
+		// Иначе перемещаем head на следующий элемент и обнуляем предыдущий указатель
+		q.head = q.head.next
+		q.head.prev = nil
+	}
+	return temp
 }
 
-// Qprint выводит элементы очереди
-func (q *Queue) Qprint() {
-	if q.QisEmpty() {
-		fmt.Println("Очередь пуста")
-		return
+// print выводит содержимое очереди
+func (q *QUEUE) print() {
+	current := q.head // Начинаем с головы очереди
+	for current != nil {
+		fmt.Print(current.data, " ") // Выводим данные текущего узла
+		current = current.next       // Переходим к следующему узлу
 	}
-
-	fmt.Print("Элементы очереди: ")
-	for i := q.front; i != q.rear; i = (i + 1) % q.maxSize {
-		fmt.Printf("%d ", q.arr[i])
-	}
-	fmt.Println()
-}
-
-// QreadFromFile считывает элементы очереди из файла
-func (q *Queue) QreadFromFile(filename string) error {
-	file, err := os.Open(filename)
-	if err != nil {
-		return errors.New("Не удалось открыть файл для чтения.")
-	}
-	defer file.Close()
-
-	// Сбрасываем очередь
-	q.front = 0
-	q.rear = 0
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		values := strings.Fields(scanner.Text())
-		for _, valueStr := range values {
-			value, err := strconv.Atoi(valueStr)
-			if err != nil {
-				return errors.New("Не удалось преобразовать строку в число.")
-			}
-			if q.QisFull() {
-				return errors.New("Очередь переполнена при считывании из файла.")
-			}
-			q.Qpush(value)
-		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// QwriteToFile записывает элементы очереди в файл
-func (q *Queue) QwriteToFile(filename string) error {
-	file, err := os.Create(filename)
-	if err != nil {
-		return errors.New("Не удалось открыть файл для записи.")
-	}
-	defer file.Close()
-
-	if q.QisEmpty() {
-		fmt.Println("Очередь пуста, ничего не записано.")
-		return nil
-	}
-
-	for i := q.front; i != q.rear; i = (i + 1) % q.maxSize {
-		_, err := file.WriteString(fmt.Sprintf("%d ", q.arr[i]))
-		if err != nil {
-			return err
-		}
-	}
-
-	return nil
+	fmt.Println() // Перевод строки после вывода всех элементов
 }

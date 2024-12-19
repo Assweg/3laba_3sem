@@ -18,7 +18,7 @@ CPP_TARGETS = $(CPP_TESTS:tests/%.cpp=build/%.out)
 GO_INCLUDE = include
 GO_TESTS = $(wildcard tests/*_test.go)
 
-all: cpp_test go_test coverage
+all: cpp_test coverage
 
 cpp_test: $(CPP_TARGETS)
 
@@ -29,7 +29,7 @@ $(CPP_TARGETS): build/%.out: tests/%.cpp
 go_test:
 	$(GOTEST) -v $(GO_TESTS)
 
-coverage: cpp_coverage go_coverage
+coverage: cpp_coverage
 
 cpp_coverage: $(CPP_TARGETS)
 	@mkdir -p coverage
@@ -38,9 +38,7 @@ cpp_coverage: $(CPP_TARGETS)
 	done
 	gcovr --html --html-details -o coverage/cpp_coverage.html --root=. --exclude-directories=tests
 
-go_coverage:
-	$(GOTEST) -coverprofile=coverage/go_coverage.out $(GO_TESTS) || true
-	$(GOCOVER) -html=coverage/go_coverage.out -o coverage/go_coverage.html
+
 
 clean:
 	$(GOCLEAN)

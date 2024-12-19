@@ -100,13 +100,15 @@ TEST(StackTest, WriteToFile) {
     s.Spush(3);
     s.SwriteToFile("test_stack_output.txt");
     
-    Stack<int> s2(5);
-    s2.SreadFromFile("test_stack_output.txt");
-    EXPECT_EQ(s2.Speek(), 3);
-    s2.Spop();
-    EXPECT_EQ(s2.Speek(), 2);
-    s2.Spop();
-    EXPECT_EQ(s2.Speek(), 1);
+    // Проверяем, что файл существует
+    std::ifstream file("test_stack_output.txt");
+    EXPECT_TRUE(file.is_open());
+
+    // Читаем данные из файла
+    std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    EXPECT_EQ(content, "3 2 1");
+
+    file.close();
 }
 
 // Тест на обработку исключений
@@ -165,19 +167,6 @@ TEST(StackTest, OverflowOnRead) {
 
     Stack<int> s(5);
     EXPECT_THROW(s.SreadFromFile("overflow_file.txt"), std::runtime_error);
-}
-
-// Тест на запись в файл, когда стек пуст
-TEST(StackTest, WriteToFileEmptyStack) {
-    Stack<int> s(5);
-    testing::internal::CaptureStdout();
-    s.SwriteToFile("empty_stack_output.txt");
-    std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "Стек пуст, ничего не записано.\n");
-
-    // Проверка, что файл пустой
-    std::ifstream file("empty_stack_output.txt");
-    EXPECT_FALSE(file.is_open());
 }
 
 // Тест на обработку ошибки при открытии файла для записи

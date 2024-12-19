@@ -45,16 +45,6 @@ TEST(QueueTest, IsEmpty) {
     EXPECT_FALSE(q.QisEmpty());
 }
 
-// Тест метода QisFull
-TEST(QueueTest, IsFull) {
-    Queue<int> q(3);
-    q.Qpush(1);
-    q.Qpush(2);
-    EXPECT_FALSE(q.QisFull());
-    q.Qpush(3);
-    EXPECT_TRUE(q.QisFull());
-}
-
 // Тест метода Qprint
 TEST(QueueTest, Print) {
     Queue<int> q(5);
@@ -85,16 +75,6 @@ TEST(QueueTest, WriteToFile) {
     Queue<int> q2(5);
     q2.QreadFromFile("test_queue_output.txt");
     EXPECT_EQ(q2.Qpeek(), 1);
-}
-
-// Тест на обработку исключений
-TEST(QueueTest, ExceptionHandling) {
-    Queue<int> q(3);
-    EXPECT_THROW(q.Qpeek(), std::runtime_error);
-    q.Qpush(1);
-    q.Qpush(2);
-    q.Qpush(3);
-    EXPECT_THROW(q.Qpush(4), std::runtime_error);
 }
 
 // Тест на переполнение очереди

@@ -41,12 +41,10 @@ CompleteBinaryTree<T>::~CompleteBinaryTree() {
     delete[] tree; // Освобождаем память
 }
 
-// Функция для добавления элемента в полное двоичное дерево
 template <typename T>
 void CompleteBinaryTree<T>::Tinsert(const T& value) {
     if (size >= capacity) {
-        cout << "Дерево переполнено!\n";
-        return;
+        throw std::runtime_error("Дерево переполнено!"); // Выбрасываем исключение
     }
     tree[size] = value; // Добавляем элемент в конец массива
     size++;
