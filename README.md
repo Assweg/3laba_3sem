@@ -38,4 +38,12 @@ go test ./...
 
 ---
 
-[Все учебные работы](https://github.com/Assweg/nstu) · [Профиль Assweg](https://github.com/Assweg)
+[Каталог учебных репозиториев](https://github.com/Assweg/nstu) · [Профиль Assweg](https://github.com/Assweg)
+
+## Материалы из локальной папки
+
+Исходники и документы этой работы собраны в этом репозитории.
+
+Локальный вариант отличается от ранее опубликованного кода и сохранён в [local-version](local-version/). Основная версия остаётся в корне. Для запуска локального варианта сначала перейдите в его каталог.
+
+[local-version](local-version/) · [variants](variants/)
